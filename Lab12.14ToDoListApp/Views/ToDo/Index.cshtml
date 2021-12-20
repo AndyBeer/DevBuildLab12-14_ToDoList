@@ -1,0 +1,30 @@
+﻿@model EmployeeToDoViewModel
+
+<h2>To-Do List</h2>
+
+<a asp-action="Create" asp-controller="ToDo"><button>Add a New To-Do Item</button></a>
+<br />
+
+@foreach (ToDo tD in Model.ToDos)
+{
+<div style="border: 2px solid black">
+    <a asp-action="Details" asp-controller="ToDo" asp-route-ID="@tD.ID"><h4 style="border:1px solid black">@tD.Name (ID: @tD.ID)</h4></a>
+    <h6>@tD.Description</h6>
+    @if (tD.Employee == null)
+    {
+        <p>CURRENTLY UNASSIGNED</p>
+    }
+    else
+    {
+        <p>Assigned to: @tD.Employee.Name</p>
+    }
+    @if (tD.IsCompleted == true)
+    { 
+        <p>--Task Complete--</p>
+    }
+    <a asp-action="Details" asp-controller="ToDo" asp-route-ID="@tD.ID"><p>Details</p></a>
+    <a asp-action="Update" asp-controller="ToDo" asp-route-ID="@tD.ID"><p>Update</p></a>
+    <a asp-action="Delete" asp-controller="ToDo" asp-route-ID="@tD.ID"><p>Delete</p></a>
+</div>
+    <br />
+}

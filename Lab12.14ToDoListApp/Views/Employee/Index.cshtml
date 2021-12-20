@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Employee>
+
+<h2>Employee List</h2>
+
+<a asp-action="Create" asp-controller="Employee"><button>Add a New Employee</button></a>
+<br/>
+
+@foreach (Employee em in Model)
+{
+<div style="border: 2px solid black">
+    <h6>@em.Name (ID: @em.ID)</h6>
+    <p>Title: @em.Title</p>
+    <p>Hours Remaining: @em.Hours</p>
+    <a asp-action="Details" asp-controller="Employee" asp-route-ID="@em.ID"><p>Details</p></a>
+    <a asp-action="Update" asp-controller="Employee" asp-route-ID="@em.ID"><p>Update</p></a>
+    <a asp-action="Delete" asp-controller="Employee" asp-route-ID="@em.ID"><p>Delete</p></a>
+</div>
+    <br />
+}
+
+
+

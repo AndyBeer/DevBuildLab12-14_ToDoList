@@ -1,0 +1,9 @@
+﻿@model Employee
+
+<h4>Details: @Model.Name (@Model.ID)</h4>
+<p>Title: @Model.Title</p>
+<p>Hours Remaining: @Model.Hours</p>
+
+<a asp-action="Update" asp-controller="Employee" asp-route-id="@Model.ID"><button>Update Employee Details</button></a>
+<a asp-action="Index" asp-controller="Employee"><button>Back to Employee List</button></a>
+

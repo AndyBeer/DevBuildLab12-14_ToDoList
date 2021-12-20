@@ -1,0 +1,45 @@
+﻿@model ToDo
+@*Need to switch this to the viewModel to pass in Employee list (I think).  trying ViewData in the controller *@
+<h2>Update Details for @Model.Name</h2>
+
+@*View Data conjuration*@
+@{ 
+    IEnumerable<Employee> employees = ViewData["Employees"] as IEnumerable<Employee>;
+
+}
+
+<form asp-action="Update" asp-controller="ToDo" method="post" name="tD">
+
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" value="@Model.Name" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <label asp-for="AssignedTo" class="control-label">Assigned To:</label>
+    <br />
+    <select asp-for="AssignedTo" name="emplID">
+
+        <option>-Unassigned-</option>
+        @foreach (Employee e in employees)
+        {
+            <option value="@e.ID">@e.Name</option>
+
+        }
+
+    </select>
+    <br />
+    <label asp-for="Description" class="control-label"></label>
+    <input asp-for="Description" class="form-control" value="@Model.Description" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+
+    <label asp-for="Duration" class="control-label">Duration: </label>
+    <input asp-for="Duration" class="form-control" value="@Model.Duration" />
+    <span asp-validation-for="Duration" class="text-danger"></span>
+    <br />
+    <label asp-for="IsCompleted" class="control-label">Task Complete? </label>
+    <input type="checkbox" asp-for="IsCompleted" />
+    <span asp-validation-for="IsCompleted" class="text-danger"></span>
+    <br />
+
+
+    <input type="submit" />
+</form>

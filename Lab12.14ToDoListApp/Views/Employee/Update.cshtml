@@ -1,0 +1,22 @@
+﻿@model Employee
+
+<h2>Update Details for @Model.Name</h2>
+
+<form asp-action="Update" asp-controller="Employee" method="post" name="e">
+
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" value="@Model.Name" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+
+
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" value="@Model.Title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <label asp-for="Hours" class="control-label">Hours Remaining</label>
+    <input asp-for="Hours" class="form-control" value="@Model.Hours" />
+    <span asp-validation-for="Hours" class="text-danger"></span>
+    <br />
+    <input type="submit"/>
+</form>

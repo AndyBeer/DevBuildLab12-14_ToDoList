@@ -1,0 +1,17 @@
+﻿@model ToDo
+
+<h4>Details: @Model.Name (@Model.ID)</h4>
+<p>Description: @Model.Description</p>
+@if (@Model.Employee == null)
+{
+    <p>CURRENTLY UNASSIGNED</p>
+}
+else
+{
+    <p>Assigned to: @Model.Employee.Name</p>
+}
+<p>Duration: @Model.Duration</p>
+
+
+<a asp-action="Update" asp-controller="ToDo" asp-route-id="@Model.ID"><button>Update To-Do Item</button></a>
+<a asp-action="Index" asp-controller="ToDo"><button>Back to To-Do List</button></a>

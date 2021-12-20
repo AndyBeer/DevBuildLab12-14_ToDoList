@@ -1,0 +1,24 @@
+﻿@model Employee
+
+<h2>Add an Employee</h2>
+
+<form asp-action="Create" method="post">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <label asp-for="Hours" class="control-label"></label>
+    <input asp-for="Hours" class="form-control" value="Remaining Hours:" />
+    <span asp-validation-for="Hours" class="text-danger"></span>
+
+    <input type="submit" value="Add Employee" />
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

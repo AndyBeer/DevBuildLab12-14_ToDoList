@@ -13,6 +13,9 @@ namespace Lab12._14ToDoListApp.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int AssignedTo { get; set; }
+        public int Duration { get; set; }
+        public bool IsCompleted { get; set; }
         public Employee Employee { get; set; }
     }
+
 }

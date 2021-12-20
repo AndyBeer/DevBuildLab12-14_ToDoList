@@ -1,0 +1,13 @@
+﻿@model Employee
+
+<div>
+    <h4>Details: @Model.Name (ID# @Model.ID)</h4>
+    <p>Title: @Model.Title</p>
+    <p>Hours Remaining: @Model.Hours</p>
+</div>
+
+<h4>Are you sure you wish to remove this employee?</h4>
+<form asp-action="DeleteEmpFromDB" asp-controller="Employee" asp-route-id="@Model.ID">
+    <input type="submit" value="Delete" />
+</form>
+<a asp-action="Index" asp-controller="Employee"><button>Cancel</button></a>
